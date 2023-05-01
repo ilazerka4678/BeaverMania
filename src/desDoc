@@ -1,0 +1,20 @@
+beaver hunt (2023) design document
+
+classes:
+  -beaver class to represent a caught beaver
+    >includes weight, randomly generated (will be affected by items), price on the market depending on type of beaver, weight, and fur quality.
+    >fur quality is randomly generated but will fluctuate between different areas if they're to be added.
+    >type of beaver will impact the price of the beaver on the beaver market as well as the button pressing pattern needed to catch it
+  -market class to represent the nearby beaver market
+    >will try to include a stock market type simulation to have the value of the beaver furs fluctuate not only randomly but also based on how many beavers are bought and sold
+    >player is able to both sell and buy beavers of different types that have been previously caught in order to maximize income
+  -gearShop class to represent a beavering gear shop
+    >list of beaver catching devices available for purchase, ~5 with 1 or 2 being straight upgrades and the rest having their own special pros and cons
+    >ability to buy beaver bait (needed to catch beavers)
+
+
+  a minigame to catch the beaver will be made, still needs to be decided
+
+  
+
+
