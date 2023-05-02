@@ -28,7 +28,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Ermmm.."/>
+          <text value=""/>
         </properties>
       </component>
       <component id="84335" class="javax.swing.JTextField" binding="hiTextField" default-binding="true">
@@ -38,7 +38,7 @@
           </grid>
         </constraints>
         <properties>
-          <text value="Hi!"/>
+          <text value=""/>
         </properties>
       </component>
     </children>
