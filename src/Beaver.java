@@ -14,8 +14,8 @@ public class Beaver {
         beaverType = "regular beaver";
     }
 
-    public int getBeaverPrice(int pricePerKilo){
-        return (int)(weight * pricePerKilo* (furQuality/100.0));
+    public int getBeaverPrice(double pricePerKilo){
+        return (int)(weight * (pricePerKilo * 10) * (furQuality/100.0));
     }
     public int getFurQuality(){
         return furQuality;

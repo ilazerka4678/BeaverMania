@@ -15,6 +15,9 @@ public class Main implements Runnable{
             if (i == 1){
                 System.out.println(Market.getPrice());
             }
+            if (i == 2){
+                System.out.println(test.getBeaverPrice(Market.getPrice()));
+            }
         }
 
     }
