@@ -8,5 +8,23 @@ public class Beaver {
         furQuality = f;
         beaverType = b;
     }
+    public Beaver(double w, int f){
+        weight = w;
+        furQuality = f;
+        beaverType = "regular beaver";
+    }
+
+    public int getBeaverPrice(int pricePerKilo){
+        return (int)(weight * pricePerKilo* (furQuality/100.0));
+    }
+    public int getFurQuality(){
+        return furQuality;
+    }
+    public String getBeaverType(){
+        return beaverType;
+    }
+    public double getWeight(){
+        return weight;
+    }
 
 }
