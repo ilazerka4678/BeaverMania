@@ -5,32 +5,22 @@ public class Main implements Runnable{
         Main obj = new Main();
         Thread marketThread = new Thread(obj);
         marketThread.start();
-        Beaver test = new Beaver(10,98);
-        System.out.println(test.getBeaverPrice(10));
         Market market = new Market(1);
-        Player player = new Player("Ivan", 1000);
-        GearShop shop = new GearShop(player);
-        int i = 0;
-        System.out.print("Input 1 to see current price, 2 to see the price of the beaver, 3 to test shop: ");
-        while (i != -1){
-            i = scan.nextInt();
-            if (i == 1){
-                System.out.println(Market.getPrice());
-            }
-            if (i == 2){
-                System.out.println(test.getBeaverPrice(Market.getPrice()));
-            }
-            if (i == 3){
-                shop.sellEquipment(2);
-                System.out.println(player.getEquipment());
-                System.out.println(player.getGold());
-                shop.sellEquipment(1);
-                System.out.println(player.getEquipment());
-                System.out.println(player.getGold());
-            }
-        }
+        System.out.println("Welcome to Beaver Frontier!");
+        System.out.print("Please enter your name here: ");
+        //if name is recognized from the save file, load user
 
+        Player player = new Player(scan.nextLine());
+        System.out.println("-----------");
+        System.out.println("You arrive at a French fort in the North American Northwest frontier. \n     Your goal is to hunt beavers and get as rich as possible. \n                  Good luck out there, " + player.getName());
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
     }
+
     public void run(){
         double newPrice = 1;
         while (newPrice > 0){

@@ -57,6 +57,9 @@ public class Player {
     public Equipment getEquipment(){
         return equipment;
     }
+    public String getName(){
+        return name;
+    }
 
 
 
