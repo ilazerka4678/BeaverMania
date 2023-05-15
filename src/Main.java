@@ -8,8 +8,10 @@ public class Main implements Runnable{
         Beaver test = new Beaver(10,98);
         System.out.println(test.getBeaverPrice(10));
         Market market = new Market(1);
+        Player player = new Player("Ivan", 1000);
+        GearShop shop = new GearShop(player);
         int i = 0;
-        System.out.print("Input 1 to see current price: ");
+        System.out.print("Input 1 to see current price, 2 to see the price of the beaver, 3 to test shop: ");
         while (i != -1){
             i = scan.nextInt();
             if (i == 1){
@@ -17,6 +19,14 @@ public class Main implements Runnable{
             }
             if (i == 2){
                 System.out.println(test.getBeaverPrice(Market.getPrice()));
+            }
+            if (i == 3){
+                shop.sellEquipment(2);
+                System.out.println(player.getEquipment());
+                System.out.println(player.getGold());
+                shop.sellEquipment(1);
+                System.out.println(player.getEquipment());
+                System.out.println(player.getGold());
             }
         }
 
@@ -29,7 +39,7 @@ public class Main implements Runnable{
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            newPrice = Math.random();
+            newPrice = Math.random() * 4;
             Market.setPrice(newPrice);
         }
     }
