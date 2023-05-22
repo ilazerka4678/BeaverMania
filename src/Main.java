@@ -6,19 +6,7 @@ public class Main implements Runnable{
         Thread marketThread = new Thread(obj);
         marketThread.start();
         Market market = new Market(1);
-        System.out.println("Welcome to Beaver Frontier!");
-        System.out.print("Please enter your name here: ");
-        //if name is recognized from the save file, load user
-
-        Player player = new Player(scan.nextLine());
-        System.out.println("-----------");
-        System.out.println("You arrive at a French fort in the North American Northwest frontier. \n     Your goal is to hunt beavers and get as rich as possible. \n                  Good luck out there, " + player.getName());
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
+        GUI gui = new GUI();
     }
 
     public void run(){
