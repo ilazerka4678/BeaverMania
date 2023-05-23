@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GUI extends JFrame implements ActionListener {
+public class GUI extends JFrame implements ActionListener{
 
     private JLabel UserName;
     private JTextField userName;
@@ -10,9 +10,10 @@ public class GUI extends JFrame implements ActionListener {
     private JPanel mainPanel;
     private JTextArea userInfo;
     private JButton quitButton;
-    private JButton button1;
-    private JButton button2;
-    private JButton button3;
+    private JButton feedBeaversButton;
+    private JButton shaveBeaversButton;
+    private JButton buyBeaverButton;
+    private Player player;
 
 
     public GUI() {
