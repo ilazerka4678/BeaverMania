@@ -12,14 +12,17 @@ public class GUI extends JFrame implements ActionListener {
     private JButton quitButton;
     private JButton button1;
     private JButton button2;
+    private JButton button3;
+
 
     public GUI() {
 
-        setSize(600, 600);
-        setLocation(400, 200);
+        setSize(600, 500);
+        setLocation(700, 200);
         setContentPane(mainPanel);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
+        setResizable(false);
         userInfo.setEditable(false);
         startButton.addActionListener(this);
         quitButton.addActionListener(this);
