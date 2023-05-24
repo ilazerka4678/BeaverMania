@@ -7,7 +7,7 @@ public class Player {
     private ArrayList<Beaver> beaverList;
     private int nextBeaverPrice;
     public Player(String n){
-        gold = 10;
+        gold = 100000;
         name = n;
         nextBeaverPrice = 10;
         beaverList = new ArrayList<Beaver>();

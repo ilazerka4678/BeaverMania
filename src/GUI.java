@@ -57,8 +57,9 @@ public class GUI extends JFrame implements ActionListener{
             }
         }
         if (button.getText().equals("Buy Beaver")) {
-            if (player.addBeaver(new Beaver((int)(Math.random()*10),(int)(Math.random()*101))) != -1){
+            if (player.addBeaver(new Beaver((int)(Math.random()*10),(int)(Math.random()*101),(int)(Math.random()*5))) != -1){
                 userText = "Bought a beaver!";
+                userText += "\n" + "It's a " + player.getBeaverList().get(player.getBeaverList().size()-1).getBeaverType() + "!!!";
                 userText += "\n" + "Gold: " + player.getGold();
                 userText += "\n" + "Next beaver will cost: " + player.getNextBeaverPrice();
                 userInfo.setText(userText);

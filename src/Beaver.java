@@ -13,6 +13,20 @@ public class Beaver {
         furQuality = f;
         beaverType = "regular beaver";
     }
+    public Beaver(double w, int f, int t){
+        weight = w;
+        furQuality = f;
+        beaverType = "regular beaver";
+        if (t == 1){
+            beaverType = "fish beaver";
+        }
+        if (t == 2 || t == 3){
+            beaverType = "regular beaver";
+        }
+        if (t == 4){
+            beaverType = "penguin beaver";
+        }
+    }
 
     public int getBeaverPrice(double pricePerKilo){
         return (int)(weight * (pricePerKilo) * (furQuality/100.0));
