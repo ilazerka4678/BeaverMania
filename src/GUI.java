@@ -14,10 +14,11 @@ public class GUI extends JFrame implements ActionListener{
     private JButton shaveBeaversButton;
     private JButton buyBeaverButton;
     private Player player;
+    private PlayersData playerData;
 
 
     public GUI() {
-
+        playerData = new PlayersData();
         setSize(600, 500);
         setLocation(700, 200);
         setContentPane(mainPanel);
@@ -27,21 +28,46 @@ public class GUI extends JFrame implements ActionListener{
         userInfo.setEditable(false);
         startButton.addActionListener(this);
         quitButton.addActionListener(this);
+        feedBeaversButton.addActionListener(this);
+        shaveBeaversButton.addActionListener(this);
+        buyBeaverButton.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton button = (JButton) e.getSource();
+        String userText = "";
         if (button.getText().equals("Start")) {
             if (!userName.getText().equals("")) {
-                String userText = "Welcome to Beaver Hunt, " + userName.getText() + "!";
-                userInfo.setText(userText);
+                if (playerData.playerExists(userName.getText())) {
+                    player = playerData.getPlayer(userName.getText());
+                    userText = "Welcome back, " + player.getName() + "!";
+                    userText += "\n" + "Gold: " + player.getGold();
+                    userText += "\n" + "Next beaver will cost: " + player.getNextBeaverPrice();
+                    userInfo.setText(userText);
+                } else {
+                    player = new Player(userName.getText());
+                    playerData.newPlayer(player);
+                    userText = "Welcome to Beaver Hunt, " + player.getName() + "!";
+                    userInfo.setText(userText);
+                }
             }
             else{
                 userInfo.setText("You need to set your username first.");
             }
         }
+        if (button.getText().equals("Buy Beaver")) {
+            if (player.addBeaver(new Beaver((int)(Math.random()*10),(int)(Math.random()*101))) != -1){
+                userText = "Bought a beaver!";
+                userText += "\n" + "Gold: " + player.getGold();
+                userText += "\n" + "Next beaver will cost: " + player.getNextBeaverPrice();
+                userInfo.setText(userText);
+            }
+
+
+        }
         if (button.getText().equals("Quit")){
+            playerData.savePlayers();
             this.dispose();
         }
     }
