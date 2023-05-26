@@ -92,7 +92,8 @@ public class GUI extends JFrame implements ActionListener{
                 userText += "\n" + "Gold: " + player.getGold();
                 userText += "\n" + "Next beaver will cost: " + player.getNextBeaverPrice();
                 userInfo.setText(userText);
-                ImageIcon icon = getIcon("C:\\Users\\BT_4N2_02\\Downloads\\Real-Beaver.png");
+                ImageIcon icon = new ImageIcon("src\\beaver.png");
+                icon.setImage(icon.getImage());
                 Image image = icon.getImage();
                 image = image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
                 ImageIcon scaledIcon = new ImageIcon(image);
