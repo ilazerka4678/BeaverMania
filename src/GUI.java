@@ -1,9 +1,8 @@
-import javax.imageio.ImageIO;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class GUI extends JFrame implements ActionListener{
@@ -50,16 +49,6 @@ public class GUI extends JFrame implements ActionListener{
         shaveBeaversButton.addActionListener(this);
         buyBeaverButton.addActionListener(this);
 
-    }
-    public ImageIcon getIcon(String filename) {
-        try {
-            BufferedImage bi = ImageIO.read(new File(filename));
-            return new ImageIcon(bi, "");
-        }
-        catch (Exception io) {
-            System.out.println("Unable to find image");
-            return null;
-        }
     }
 
     @Override
