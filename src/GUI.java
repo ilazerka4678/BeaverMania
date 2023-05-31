@@ -61,12 +61,58 @@ public class GUI extends JFrame implements ActionListener{
                     player = playerData.getPlayer(userName.getText());
                     userText = "Welcome back, " + player.getName() + "!";
                     userText += "\n" + "Gold: " + player.getGold();
+                    userText += "\n" + "Food will cost: " + player.getBeavers() * 5;
                     userText += "\n" + "Next beaver will cost: " + player.getNextBeaverPrice();
                     userInfo.setText(userText);
+                    ImageIcon icon = new ImageIcon("src\\beaver.png");
+                    icon.setImage(icon.getImage());
+                    Image image = icon.getImage();
+                    image = image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
+                    ImageIcon scaledIcon = new ImageIcon(image);
+                    slot = player.getBeavers() + 1;
+                    if (player.getBeavers() > 0){
+                        beaverSlot1.setIcon(scaledIcon);
+                        if (player.getBeavers() > 1){
+                            beaverSlot2.setIcon(scaledIcon);
+                            if (player.getBeavers() > 2) {
+                                beaverSlot3.setIcon(scaledIcon);
+                                if (player.getBeavers() > 3){
+                                    beaverSlot4.setIcon(scaledIcon);
+                                    if (player.getBeavers() > 4){
+                                        beaverSlot5.setIcon(scaledIcon);
+                                        if (player.getBeavers() > 5){
+                                            beaverSlot6.setIcon(scaledIcon);
+                                            if (player.getBeavers() > 6){
+                                                beaverSlot7.setIcon(scaledIcon);
+                                                if (player.getBeavers() > 7){
+                                                    beaverSlot8.setIcon(scaledIcon);
+                                                    if (player.getBeavers() > 8){
+                                                        beaverSlot9.setIcon(scaledIcon);
+                                                        if (player.getBeavers() > 9){
+                                                            beaverSlot10.setIcon(scaledIcon);
+                                                            if (player.getBeavers() > 10){
+                                                                beaverSlot11.setIcon(scaledIcon);
+                                                                if (player.getBeavers() > 11){
+                                                                    beaverSlot12.setIcon(scaledIcon);
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 } else {
                     player = new Player(userName.getText());
                     playerData.newPlayer(player);
                     userText = "Welcome to Beaver Hunt, " + player.getName() + "!";
+                    userText += "\n" + "Gold: " + player.getGold();
+                    userText += "\n" + "Food will cost: " + player.getBeavers() * 5;
+                    userText += "\n" + "Next beaver will cost: " + player.getNextBeaverPrice();
                     userInfo.setText(userText);
                 }
             }
@@ -79,6 +125,7 @@ public class GUI extends JFrame implements ActionListener{
                 userText = "Bought a beaver!";
                 userText += "\n" + "It's a " + player.getBeaverList().get(player.getBeaverList().size()-1).getBeaverType() + "!!!";
                 userText += "\n" + "Gold: " + player.getGold();
+                userText += "\n" + "Food will cost: " + player.getBeavers() * 5;
                 userText += "\n" + "Next beaver will cost: " + player.getNextBeaverPrice();
                 userInfo.setText(userText);
                 ImageIcon icon = new ImageIcon("src\\beaver.png");
@@ -126,6 +173,15 @@ public class GUI extends JFrame implements ActionListener{
             }
 
 
+        }
+        if (button.getText().equals("Feed Beavers")){
+            if (player.subtractGold(player.getBeavers() * 5)){
+                userText = "Fed beavers for " + player.getBeavers() * 5 + "!";
+                userText += "\n" + "Gold: " + player.getGold();
+                userText += "\n" + "Food will cost: " + player.getBeavers() * 5;
+                userText += "\n" + "Next beaver will cost: " + player.getNextBeaverPrice();
+                userInfo.setText(userText);
+            }
         }
         if (button.getText().equals("Quit")){
             playerData.savePlayers();
