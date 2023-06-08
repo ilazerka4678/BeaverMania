@@ -67,7 +67,7 @@ public class GUI extends JFrame implements ActionListener{
                     ImageIcon icon = new ImageIcon("src\\beaver.png");
                     icon.setImage(icon.getImage());
                     Image image = icon.getImage();
-                    image = image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
+                    image = image.getScaledInstance(75,50, Image.SCALE_SMOOTH);
                     ImageIcon scaledIcon = new ImageIcon(image);
                     slot = player.getBeavers() + 1;
                     if (player.getBeavers() > 0){
@@ -131,7 +131,7 @@ public class GUI extends JFrame implements ActionListener{
                 ImageIcon icon = new ImageIcon("src\\beaver.png");
                 icon.setImage(icon.getImage());
                 Image image = icon.getImage();
-                image = image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
+                image = image.getScaledInstance(75,50, Image.SCALE_SMOOTH);
                 ImageIcon scaledIcon = new ImageIcon(image);
                 if (slot == 1) {
                     beaverSlot1.setIcon(scaledIcon);
