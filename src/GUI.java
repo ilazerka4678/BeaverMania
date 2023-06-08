@@ -31,6 +31,7 @@ public class GUI extends JFrame implements ActionListener{
     private Player player;
     private PlayersData playerData;
     private int slot;
+    private boolean hungryBeavers;
 
 
     public GUI() {
@@ -48,6 +49,7 @@ public class GUI extends JFrame implements ActionListener{
         feedBeaversButton.addActionListener(this);
         shaveBeaversButton.addActionListener(this);
         buyBeaverButton.addActionListener(this);
+        hungryBeavers = false;
 
     }
 
@@ -67,7 +69,7 @@ public class GUI extends JFrame implements ActionListener{
                     ImageIcon icon = new ImageIcon("src\\beaver.png");
                     icon.setImage(icon.getImage());
                     Image image = icon.getImage();
-                    image = image.getScaledInstance(75,50, Image.SCALE_SMOOTH);
+                    image = image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
                     ImageIcon scaledIcon = new ImageIcon(image);
                     slot = player.getBeavers() + 1;
                     if (player.getBeavers() > 0){
@@ -131,7 +133,7 @@ public class GUI extends JFrame implements ActionListener{
                 ImageIcon icon = new ImageIcon("src\\beaver.png");
                 icon.setImage(icon.getImage());
                 Image image = icon.getImage();
-                image = image.getScaledInstance(75,50, Image.SCALE_SMOOTH);
+                image = image.getScaledInstance(50,50, Image.SCALE_SMOOTH);
                 ImageIcon scaledIcon = new ImageIcon(image);
                 if (slot == 1) {
                     beaverSlot1.setIcon(scaledIcon);
@@ -175,12 +177,49 @@ public class GUI extends JFrame implements ActionListener{
 
         }
         if (button.getText().equals("Feed Beavers")){
+            if (player.getBeavers() < 1) {
+                userText = "No beavers to feed!";
+                userText += "\n" + "Gold: " + player.getGold();
+                userText += "\n" + "Food will cost: " + player.getBeavers() * 5;
+                userText += "\n" + "Next beaver will cost: " + player.getNextBeaverPrice();
+                userInfo.setText(userText);
+            }
             if (player.subtractGold(player.getBeavers() * 5)){
                 userText = "Fed beavers for " + player.getBeavers() * 5 + "!";
                 userText += "\n" + "Gold: " + player.getGold();
                 userText += "\n" + "Food will cost: " + player.getBeavers() * 5;
                 userText += "\n" + "Next beaver will cost: " + player.getNextBeaverPrice();
                 userInfo.setText(userText);
+                hungryBeavers = false;
+            }
+        }
+        if (button.getText().equals("Shave Beavers")){
+            if (player.getBeavers() < 1){
+                userText = "You have no beavers to shave! Get a beaver!";
+                userText += "\n" + "Gold: " + player.getGold();
+                userText += "\n" + "Food will cost: " + player.getBeavers() * 5;
+                userText += "\n" + "Next beaver will cost: " + player.getNextBeaverPrice();
+                userInfo.setText(userText);
+            }
+            if (hungryBeavers){
+                userText = "Your beavers are too hungry to shave! Feed them!";
+                userText += "\n" + "Gold: " + player.getGold();
+                userText += "\n" + "Food will cost: " + player.getBeavers() * 5;
+                userText += "\n" + "Next beaver will cost: " + player.getNextBeaverPrice();
+                userInfo.setText(userText);
+            }
+            else{
+                int profit = 0;
+                for (int i = 0; i < player.getBeavers(); i++){
+                    profit += player.getBeaverList().get(i).getBeaverPrice(5);
+                }
+                userText = "You shaved all your precious beavers and made " + profit + " gold!";
+                player.addGold(profit);
+                userText += "\n" + "Gold: " + player.getGold();
+                userText += "\n" + "Food will cost: " + player.getBeavers() * 5;
+                userText += "\n" + "Next beaver will cost: " + player.getNextBeaverPrice();
+                userInfo.setText(userText);
+                hungryBeavers = true;
             }
         }
         if (button.getText().equals("Quit")){
